@@ -1,0 +1,27 @@
+{% extends "::base.html.twig" %} 
+	{% block head %}
+	<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+{% endblock %} 
+	{% block body %}
+                <table class="table-bordered table text-center">
+		<tr>
+			<th>Date (mois/année)</th>
+			<th>Nb justificatifs</th>
+			<th>Montant valide</th>
+			<th>Date modification</th>
+			<th>Détails</th>
+		</tr>
+                {% for value in result %}
+                <tr>
+		        <td> {{ value.mois }} </td>
+		        <td> {{ value.nbJustificatifs }} </td>
+		        <td> {{ value.montantValide }} </td>
+		        <td> {{ value.dateModif|date("d/m/Y") }} </td>
+                <td><a href="/fichefrais/consulter/lignefraisforfaitlister/{{value.id}}" class="btn btn-primary">Ligne frais forfait</a></td>
+                <td><a href="/fichefrais/consulter/lignefraishorsforfaitlister/{{value.id}}" class="btn btn-primary">Ligne frais hors forfait</a></td>
+                </tr>
+                {% endfor %}
+                </table>
+		
+{% endblock %} 

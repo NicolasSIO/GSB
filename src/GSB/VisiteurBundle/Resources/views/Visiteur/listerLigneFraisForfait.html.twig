@@ -1,0 +1,21 @@
+{% extends "::base.html.twig" %} 
+	{% block head %}
+	<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+{% endblock %} 
+	{% block body %}
+                <table class="table-bordered table text-center">
+			<tr>
+				<th>Date (mois/année)</th>
+				<th>Quantité</th>
+				<th>Frais forfait</th>
+			</tr>
+		        {% for value in result %}
+			<tr>
+				<td> {{ value.mois }} </td>
+				<td> {{ value.quantite }} </td>
+				<td> {{ value.fraisforfait.id }} </td>
+		        </tr>
+		        {% endfor %}
+                </table>
+{% endblock %}

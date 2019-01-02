@@ -1,0 +1,63 @@
+{% extends "::base.html.twig" %}
+{% block head %}
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+	{% endblock %}
+	{% block body %}
+		<div>
+			<div class="text-center">
+				<img src="../img/logo_big.png">
+			</div>
+			<div class="offset-2 col-8">
+			<h3 class="titre" >Ajouter un visiteur</h3>
+			<div class="form-control">
+				{{ form_start(form) }}
+					{{ form_errors(form) }}
+
+					
+					{{form_label(form.id)}}
+					{{form_widget(form.id)}}
+					
+					{{ form_label(form.nom) }}
+					{{ form_widget(form.nom) }}
+					
+					{{ form_label(form.prenom) }}
+					{{ form_widget(form.prenom) }}
+					
+					{{ form_label(form.login) }}
+					{{ form_widget(form.login) }}
+					
+					{{ form_label(form.mdp) }}
+					{{ form_widget(form.mdp) }}
+					
+					{{ form_label(form.adresse) }}
+					{{ form_widget(form.adresse) }}
+					
+					{{ form_label(form.cp) }}
+					{{ form_widget(form.cp) }}
+					
+
+					{{ form_label(form.ville) }}
+					{{ form_widget(form.ville) }}
+					
+					<div class='date'>
+					{{ form_label(form.dateEmbauche) }}
+					{{ form_widget(form.dateEmbauche) }}
+					</div>					
+
+					<div class='btn'>
+					{{ form_label(form.Annuler) }}
+					{{ form_widget(form.Annuler) }}
+					</div>
+
+					<div class='btn'>
+					{{ form_label(form.Enregistrer) }}
+					{{ form_widget(form.Enregistrer) }}
+					</div>
+				{{form_end(form)}}
+
+					
+
+			</div>
+		</div>
+	{% endblock %}

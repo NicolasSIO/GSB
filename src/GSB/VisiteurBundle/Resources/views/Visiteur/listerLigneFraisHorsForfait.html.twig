@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %} 
+	{% block head %}
+	<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+{% endblock %} 
+	{% block body %}
+                <table class="table-bordered table text-center">
+			<tr>
+				<th>Libellé</th>
+				<th>Montant</th>
+			</tr>
+		        {% for value in result %}
+			<tr>
+				<td> {{ value.libelle }} </td>
+				<td> {{ value.montant }} </td>
+		        </tr>
+		        {% endfor %}
+                </table>
+{% endblock %}

@@ -1,0 +1,58 @@
+gsb_visiteur_homepage:
+    path:     /test
+    defaults: { _controller: GSBVisiteurBundle:Default:index }
+
+gsb_visiteur_connexion:
+    path:     /
+    defaults: { _controller: GSBVisiteurBundle:Connexion:connecter }
+gsb_visiteur_accueil:
+    path:     /accueil
+    defaults: { _controller: GSBVisiteurBundle:Connexion:accueil }
+
+gsb_visiteur_deconnexion:
+    path:     /logout
+    defaults: { _controller: GSBVisiteurBundle:Connexion:deconnecter }
+
+gsb_visiteur_consulter:
+    path:     /fichefrais/consulter
+    defaults: { _controller: GSBVisiteurBundle:FicheFrais:listerFicheFrais }
+
+#comptable
+gsb_visiteur_ajouter:
+    path:     /visiteur/ajouter
+    defaults: { _controller: GSBVisiteurBundle:Formulaire:form }
+
+#comptable 
+gsb_visiteur_fraisforfait:
+    path:     /fraisforfait/ajouter
+    defaults: { _controller: GSBVisiteurBundle:FraisForfait:fraisforfait }
+
+#comptable    
+gsb_visiteur_etat:
+    path:     /etat/ajouter
+    defaults: { _controller: GSBVisiteurBundle:Etat:etat }
+    
+gsb_visiteur_fichefrais:
+    path:     /fichefrais/ajouter
+    defaults: { _controller: GSBVisiteurBundle:FicheFrais:fichefrais }
+  
+gsb_visiteur_lignefraisforfait:
+    path:     /lignefraisforfait/ajouter
+    defaults: { _controller: GSBVisiteurBundle:LigneFraisForfait:lignefraisforfait }
+
+gsb_visiteur_lignefraishorsforfait:
+    path:     /lignefraishorsforfait/ajouter
+    defaults: { _controller: GSBVisiteurBundle:LigneFraisHorsForfait:lignefraishorsforfait }
+
+gsb_visiteur_listerfichefrais:
+    path:     /fichefrais/consulterlff/{ficheFrais}
+    defaults: { _controller: GSBVisiteurBundle:FicheFrais:listerFicheFrais}
+
+gsb_visiteur_listeLigneFraisForfait:
+    path: /fichefrais/consulter/lignefraisforfaitlister/{fichefrais}
+    defaults: { _controller: GSBVisiteurBundle:LigneFraisForfait:listeLigneFraisForfait } 
+
+gsb_visiteur_listeLigneFraisHorsForfait:
+    path: /fichefrais/consulter/lignefraishorsforfaitlister/{fichefrais}
+    defaults: { _controller: GSBVisiteurBundle:LigneFraisHorsForfait:listeLigneFraisHorsForfait }
+    
