@@ -6,13 +6,18 @@
 	{% block body %}
                 <table class="table-bordered table text-center">
 			<tr>
+				<th>Date</th>
 				<th>Libellé</th>
 				<th>Montant</th>
+				<th>Modifier</th>
+
 			</tr>
 		        {% for value in result %}
 			<tr>
+				<td> {{ value.date|date('d-m-y') }} </td>
 				<td> {{ value.libelle }} </td>
 				<td> {{ value.montant }} </td>
+				<td>  <a href="/fichefrais/lignefraishorsforfait/modifier/{{value.id}}" class="btn btn-primary">Modifier</a> </td>
 		        </tr>
 		        {% endfor %}
                 </table>

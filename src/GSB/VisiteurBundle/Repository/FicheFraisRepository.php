@@ -1,9 +1,8 @@
 <?php
 
 namespace GSB\VisiteurBundle\Repository;
-use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\EntityRepository; 
 use Doctrine\ORM\Query\Expr\Join;
-
 /**
  * FicheFraisRepository
  *
@@ -11,23 +10,41 @@ use Doctrine\ORM\Query\Expr\Join;
  * repository methods below.
  */
 class FicheFraisRepository extends \Doctrine\ORM\EntityRepository
-	{
-	public function listerFicheFrais($visiteur){
-		// Création du QueryBuilder
+{
+ public function listerFicheFrais($visiteur)
+    {
+    $qb = $this->_em->createQueryBuilder();
+    $qb->select('v')
+    ->from('GSBVisiteurBundle:FicheFrais', 'v')
+    ->where ($qb->expr()->eq('v.visiteur',':val'))
+    ->setParameter('val',$visiteur);
+    $query = $qb->getQuery();
+    $resultat = $query->getResult();
+    return $resultat;
 
-		$queryBuilder = $this->_em->createQueryBuilder();
-		$queryBuilder->select('v')
-		->from ('GSBVisiteurBundle:FicheFrais', 'v')
-		->where($queryBuilder->expr()->eq('v.visiteur',':val'))
-		->setParameter('val',$visiteur);
+    }
+ public function idFicheFrais($id)
+    {
+    $qb = $this->_em->createQueryBuilder();
+    $qb->select('f')
+    ->from('GSBVisiteurBundle:FicheFrais', 'f')
+    ->where ($qb->expr()->eq('f.id',':val'))
+    ->setParameter('val',$id);
+    $query = $qb->getQuery();
+    
+    return $query;
 
-		// récupérer la requête
-		$query = $queryBuilder->getQuery() ;
-		
-		// Les résultats
-		$resultat = $query->getResult() ;
-	
-		return $resultat ;
+    }
+public function dateFicheFrais($date)
+    {
+    $qb = $this->_em->createQueryBuilder();
+    $qb->select('f')
+    ->from('GSBVisiteurBundle:FicheFrais', 'f')
+    ->where ($qb->expr()->eq('f.mois',':val'))
+    ->setParameter('val',$date);
+    $query = $qb->getQuery()->getResult();
+    
+    return $query;
 
-	}
+    }
 }

@@ -8,16 +8,16 @@
 				<img src="img/logo_big.png">
 			</div>
 		<div class="offset-2 col-8">
-			 <center> Bonjour, {{app.session.get('levisi').Prenom}} 
+			 <center> Bonjour, {{app.session.get('levisi').Prenom}} {{app.session.get('levisi').Nom}}
 			<br>
 			<br>
-<a href="fichefrais/ajouter"><input class="btn btn-secondary" type="button" name="Saisir "value=" &nbsp &nbsp Saisir mes frais &nbsp"/></a>
+<a href="fichefrais/ajouter"><input class="btn" type="button" name="Saisir "value=" &nbsp &nbsp Saisir mes frais &nbsp "/></a>
 <br>
 <br>
-<a href="fichefrais/consulter"><input  class="btn btn-secondary" type="button" name="Saisir "value="Consulter mes frais"/></a>
+<a href="fichefrais/consulter"><input  class="btn" type="button" name="Saisir "value="Consulter mes frais"/></a>
 <br>
 <br>
-<a href="logout"><input type="button" class="btn btn-secondary"  value="&nbsp &nbsp &nbsp Deconnexion &nbsp &nbsp "/></a>
+<a href="logout"><input type="button" class="btn"  value="&nbsp &nbsp &nbsp Deconnexion &nbsp &nbsp "/></a>
 <center>
 		</div>
 	{% endblock %}

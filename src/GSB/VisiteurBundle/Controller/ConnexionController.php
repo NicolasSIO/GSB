@@ -54,7 +54,7 @@ public function connecterAction(Request $query) {
 			if( $vis != null && $vis->getmdp()==$password){
 			
 				$session->set('levisi',$vis);
-				return $this->render('GSBVisiteurBundle:Visiteur:Accueil.html.twig',array('levisi'=>$session));
+				return $this->redirect('/accueil');
 			}
 
 		else { 
@@ -71,24 +71,26 @@ public function connecterAction(Request $query) {
 
 
 
-	}
-	public function deconnecterAction(Request $request){
-		 $session = $request->getSession('levisi');
-		$session->set('levisi',null);
-		$session->set('nbJustificatifs',null);
+}
+public function deconnecterAction(Request $request){
+	 $session = $request->getSession('levisi');
+	$session->set('levisi',null);
+	$session->set('nbJustificatifs',null);
 
-		 return $this->redirect('/');
+	 return $this->redirect('/');
 
-	}
+}
 	
-	public function accueilAction(Request $request){
-		$session = $request->getSession('levisi');
-		if ($session->get('levisi')== null){
-			return new Response('Non connecté(e)');
-		}
-		else{
-			return $this->render('GSBVisiteurBundle:Visiteur:Accueil.html.twig',array('levisi'=>$session));
+public function accueilAction(Request $request){
+	$session = $request->getSession('levisi');
+	if ($session->get('levisi')== null){
+		return new Response('Non connecté(e)');
+	}
+	else{
+		return $this->render('GSBVisiteurBundle:Visiteur:Accueil.html.twig',array('levisi'=>$session));
 	}
 
-	}
+}
+
+
 }

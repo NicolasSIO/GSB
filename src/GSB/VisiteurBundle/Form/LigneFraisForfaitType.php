@@ -12,6 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use GSB\VisiteurBundle\Entity\FraisForfait;
 use GSB\VisiteurBundle\Entity\FicheFrais;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Doctrine\ORM\EntityRepository;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
@@ -22,10 +24,22 @@ class LigneFraisForfaitType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $session = new Session();
+        $id = $session->get('id');
+
         $builder
-        ->add('fichefrais', EntityType::class, array('class'=> FicheFrais::class,
-'choice_label' => 'id'))
-	->add('mois', IntegerType::class, array('attr'=>array('min'=>100000,'max'=>999999)))
+        ->add('fichefrais', EntityType::class, array('class'=> 'GSBVisiteurBundle:FicheFrais',
+                       'query_builder' => function (EntityRepository $ep) use ($id) {
+                        return $ep->createQueryBuilder('v')
+                       ->where('v.id = :id')
+                       ->setParameter('id', $id)   
+                       ->orderBy('v.id', 'ASC'); }
+                    ,'choice_label' => 'id'
+                    ,'multiple'  => false
+                    ,'required' => true
+                    ,'placeholder' => '--- Choisir fiche frais ---'
+                    ,'choice_label' => 'id' )) 
+	->add('mois', TextType::class)
 	->add('quantite', IntegerType::class)
         ->add('fraisforfait', EntityType::class, array('class'=> FraisForfait::class,
 'choice_label' => 'id'))

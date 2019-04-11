@@ -3,7 +3,7 @@ gsb_visiteur_homepage:
     defaults: { _controller: GSBVisiteurBundle:Default:index }
 
 gsb_visiteur_connexion:
-    path:     /
+    path:     /login
     defaults: { _controller: GSBVisiteurBundle:Connexion:connecter }
 gsb_visiteur_accueil:
     path:     /accueil
@@ -26,7 +26,6 @@ gsb_visiteur_ajouter:
 gsb_visiteur_fraisforfait:
     path:     /fraisforfait/ajouter
     defaults: { _controller: GSBVisiteurBundle:FraisForfait:fraisforfait }
-
 #comptable    
 gsb_visiteur_etat:
     path:     /etat/ajouter
@@ -35,24 +34,42 @@ gsb_visiteur_etat:
 gsb_visiteur_fichefrais:
     path:     /fichefrais/ajouter
     defaults: { _controller: GSBVisiteurBundle:FicheFrais:fichefrais }
+
+gsb_visiteur_fichefrais_modif:
+    path:     /fichefrais/modifier/{id}
+    defaults: { _controller: GSBVisiteurBundle:FicheFrais:fichefraisModif }
   
 gsb_visiteur_lignefraisforfait:
     path:     /lignefraisforfait/ajouter
     defaults: { _controller: GSBVisiteurBundle:LigneFraisForfait:lignefraisforfait }
+
+gsb_visiteur_lignefraisforfait_modif:
+    path:     /fichefrais/LigneFF/modifier/{id}
+    defaults: { _controller: GSBVisiteurBundle:LigneFraisForfait:lignefraisforfaitModif }
+
+gsb_visiteur_lignefraishorsforfait_modif:
+    path:     /fichefrais/LigneFHF/modifier/{id}
+    defaults: { _controller: GSBVisiteurBundle:LigneFraisHorsForfait:lignefraishorsforfaitModif }
+
+gsb_visiteur_lignefraishorsforfait_supprimer:
+    path:     /fichefrais/LigneFHF/supprimer/{id}
+    defaults: { _controller: GSBVisiteurBundle:LigneFraisHorsForfait:deleteFraisHorsForfait }
 
 gsb_visiteur_lignefraishorsforfait:
     path:     /lignefraishorsforfait/ajouter
     defaults: { _controller: GSBVisiteurBundle:LigneFraisHorsForfait:lignefraishorsforfait }
 
 gsb_visiteur_listerfichefrais:
-    path:     /fichefrais/consulterlff/{ficheFrais}
+    path:     /fichefrais/consulter/{id}
     defaults: { _controller: GSBVisiteurBundle:FicheFrais:listerFicheFrais}
 
 gsb_visiteur_listeLigneFraisForfait:
-    path: /fichefrais/consulter/lignefraisforfaitlister/{fichefrais}
+    path: /fichefrais/consulter/LigneFF/{fichefrais}
     defaults: { _controller: GSBVisiteurBundle:LigneFraisForfait:listeLigneFraisForfait } 
 
 gsb_visiteur_listeLigneFraisHorsForfait:
-    path: /fichefrais/consulter/lignefraishorsforfaitlister/{fichefrais}
-    defaults: { _controller: GSBVisiteurBundle:LigneFraisHorsForfait:listeLigneFraisHorsForfait }
-    
+    path: /fichefrais/consulter/LigneFHF/{fichefrais}
+    defaults: { _controller: GSBVisiteurBundle:LigneFraisHorsForfait:listerFraisHorsForfait } 
+
+
+

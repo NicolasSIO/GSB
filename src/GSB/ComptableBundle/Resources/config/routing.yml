@@ -1,0 +1,3 @@
+gsb_comptable_homepage:
+    path:     /
+    defaults: { _controller: GSBComptableBundle:Default:index }

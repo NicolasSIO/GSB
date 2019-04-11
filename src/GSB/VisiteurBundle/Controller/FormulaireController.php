@@ -34,13 +34,13 @@ class FormulaireController extends Controller{
 
 	// On vérifie que les valeurs entrées sont correctes (Nous verrons la validation des objets en détail dans le prochain chapitre)
 	if ($form->isValid()) {
-	// On enregistre notre objet $advert dans la base de données, par exemple
+	// On enregistre notre objet  dans la base de données, par exemple
 	$em = $this->getDoctrine()->getManager();
 	$em->persist($visi);
 	$em->flush();
 	$query->getSession()->getFlashBag()->add('notice', 'Visiteur enregistré.');
 	// On redirige vers la page de visualisation du visiteur créé
-	return new Response('Visiteur créer');
+	return new Response ('Visiteur créé.');
 	}
 	}
 	// Erreur dans le formulaire => retour vers ce dernier

@@ -2,9 +2,6 @@
 
 namespace GSB\VisiteurBundle\Repository;
 
-use Doctrine\ORM\EntityRepository;
-use Doctrine\ORM\Query\Expr\Join;
-
 /**
  * LigneFraisForfaitRepository
  *
@@ -12,8 +9,8 @@ use Doctrine\ORM\Query\Expr\Join;
  * repository methods below.
  */
 class LigneFraisForfaitRepository extends \Doctrine\ORM\EntityRepository
-{ 
-    function listerLigneFraisForfait($fichefrais)
+{
+function listerLigneFraisForfait($fichefrais)
     {
     $qb = $this->_em->createQueryBuilder();
     $qb->select('v')
@@ -24,23 +21,4 @@ class LigneFraisForfaitRepository extends \Doctrine\ORM\EntityRepository
     $resultat = $query->getResult();
     return $resultat;
     }
-    
-    function modifierLigneFraisForfait($fichefrais, $mois, $quantite)
-    {
-    $qb = $this->_em->createQueryBuilder('v');
-    
-    $qb->update('GSBVisiteurBundle:LigneFraisForfait','v')
-    ->set('v.quantite',$quantite)
-    ->set('v.mois',$mois)
-    ->where ('v.fichefrais = :val')
-    ->setParameter('val',$fichefrais);
-    
-    $query = $qb->getQuery();
-            
-    $resultat = $query->getResult();
-    
-    return $resultat;
-    }
-    
-    
 }

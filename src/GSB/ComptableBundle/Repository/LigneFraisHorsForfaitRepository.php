@@ -1,6 +1,9 @@
 <?php
 
-namespace GSB\VisiteurBundle\Repository;
+namespace GSB\ComptableBundle\Repository;
+
+use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 
 /**
  * LigneFraisHorsForfaitRepository
@@ -10,8 +13,7 @@ namespace GSB\VisiteurBundle\Repository;
  */
 class LigneFraisHorsForfaitRepository extends \Doctrine\ORM\EntityRepository
 {
-
- function listerLigneFraisHorsForfait($fichefrais)
+    function listerLigneFraisHorsForfait($fichefrais)
     {
     $qb = $this->_em->createQueryBuilder();
     $qb->select('v')
@@ -22,6 +24,5 @@ class LigneFraisHorsForfaitRepository extends \Doctrine\ORM\EntityRepository
     $resultat = $query->getResult();
     return $resultat;
     }
-
-
+    
 }

@@ -9,12 +9,14 @@
 				<th>Date (mois/année)</th>
 				<th>Quantité</th>
 				<th>Frais forfait</th>
+				<th>Modifier</th>
 			</tr>
 		        {% for value in result %}
 			<tr>
 				<td> {{ value.mois }} </td>
 				<td> {{ value.quantite }} </td>
 				<td> {{ value.fraisforfait.id }} </td>
+				<td>  <a href="/fichefrais/lignefraisforfait/modifier/{{value.id}}" class="btn btn-primary">Modifier</a> </td>
 		        </tr>
 		        {% endfor %}
                 </table>
